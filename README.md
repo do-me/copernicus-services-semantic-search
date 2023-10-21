@@ -24,7 +24,7 @@ The process of creating the data dump includingcan be repeated with the included
 - calculating the mean embedding for each document
 - saving as gzipped json (small file size & easy and fast to read in js with pako.js)
 
-You can re-run the process for updates (if you do so, please open a pull request for this repo or write so I can keep the data dump updated) or use other indexing models like the current [MTEB](https://huggingface.co/spaces/mteb/leaderboard) leaders of the bge or gte family. You could also use a multilingual model to perform search queries in other languages. The current dump holds 834 entries from 21 October 2023. 
+You can re-run the process for updates (if you do so, please open a pull request for this repo or write so I can keep the data dump updated) or use other indexing models like the current [MTEB](https://huggingface.co/spaces/mteb/leaderboard) leaders of the bge or gte family. You could also use a multilingual model to perform search queries in other languages than English. The current dump holds 834 entries from 21 October 2023. 
 
 ![](copernicus-services-df.png)
 
