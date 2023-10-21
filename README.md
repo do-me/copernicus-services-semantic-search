@@ -14,6 +14,6 @@ It's basically performing semantic search in the results yielded by semantic sea
 
 ## Data mining tutorial 
 
-The process of creating the data dump can be repeated with the included Jupyter Notebook. You can re-run the process for updates (if you do so, please open a pull request for this repo or write so I can keep the data dump updated). The current dump holds 834 entries from 21 October 2023.
+The process of creating the data dump can be repeated with the included [Jupyter Notebook](copernicus_services_miner.ipynb). You can re-run the process for updates (if you do so, please open a pull request for this repo or write so I can keep the data dump updated). The current dump holds 834 entries from 21 October 2023.
 
 ![](copernicus-services-df.png)
