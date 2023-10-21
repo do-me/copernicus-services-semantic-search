@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Copernicus Services - Semantic Search</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script>const colorModeOverride = window.localStorage.getItem('color-mode');
+        const hasColorModeOverride = typeof colorModeOverride === 'string';
+        if (hasColorModeOverride) {
+            document.documentElement.setAttribute('data-force-color-mode', colorModeOverride);
+        }
+    </script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" />
+    <link rel="stylesheet" type="text/css" href="main.css">
+    <script src="https://cdn.jsdelivr.net/npm/@xenova/transformers@1.4.3/dist/transformers.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pako/2.1.0/pako.min.js"></script>
+    <script src="main.js"></script>
+</head>
+
+<body>
+    <div><input type="checkbox" id="toggle-darkmode" /> <label for="toggle-darkmode"></label>
+        <script>if ((colorModeOverride == 'dark') || (!hasColorModeOverride && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+                document.querySelector('#toggle-darkmode').checked = true;
+            }</script>
+    </div>
+
+    <div class="container mt-5" id="info-container">
+        <div class="row justify-content-center">
+            <h1>Copernicus Services - Semantic Search</h1>
+            <p>A basic semantic search app based on 834 entries from <a
+                    href="https://www.copernicus.eu/en/accessing-data-where-and-how/copernicus-services-catalogue"
+                    target="_blank">Copernicus Services Catalogue</a> chunked and indexed (mean embedding of all content
+                chunks) in a ~2.4MB gzipped json with <a
+                    href="https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2"
+                    target="_blank">all-MiniLM-L6-v2</a>. Enter any query and hit submit or enter. App loads ~27Mb of
+                resources of data and scripts. If you'd to search within the result's content, consider installing the Chrome extension of <a href="https://chrome.google.com/webstore/detail/semanticfinder/ddmgffoffelnhnonpoiblaoboaeieejl" target="_blank">SemanticFinder</a>. More information on 
+                <a href="https://github.com/do-me/copernicus-services-semantic-search" target="_blank">GitHub</a>. A weekend project by <a
+                    href="https://www.linkedin.com/in/dominik-weckm%C3%BCller/" target="_blank">Dominik Weckmüller</a>.</p>
+            <div class="col-md-6 text-center">
+                <form class="form-floating" onsubmit="sendRequest(); return false;">
+                    <div class="form-group justify-content-center">
+                        <input type="text" id="input-text" class="form-control" placeholder="Enter query here"
+                            style="width: 100%;height: 48px;" value="urban heat islands">
+                    </div>
+                    <br>
+                    <div class="form-group mb-2" style="display: flex;">
+                        <label for="num-results" class="mb-0">Number of Results</label>
+                        <input type="number" id="num-results" class="form-control" placeholder="Enter number of results"
+                            value="20">
+                    </div>
+
+                    <br>
+                    <button type="submit" id="submit_button" class="btn btn-primary mb-2" disabled>
+                        <div id="loading"></div>
+                        Loading model & data ...
+                    </button>
+                    
+                </form>
+                <button class="btn btn-primary mb-2" id="toggle-content" style="display: none;">Toggle content</button>
+            </div>
+        </div>
+    </div>
+    <div class="row justify-content-center" style="padding-left: 10%; padding-right: 10%;">
+        <table id="results-table" style="display: table;" class="table">
+            <thead>
+                <tr>
+                    <th>No</th>
+                    <th>Service URL</th>
+                    <th>Catalogue URL</th>
+                    <th>Title</th>
+                    <th>Content</th>
+                    <th>Similarity</th>
+                </tr>
+            </thead>
+            <tbody id="results-table-body" style="word-wrap: break-word;">
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>

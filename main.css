@@ -1,0 +1,119 @@
+:root,
+:root[data-force-color-mode="light"] {
+    color-scheme: light dark;
+    --bgcolor: white;
+    --p: #474747;
+}
+
+/* dark */
+@media (prefers-color-scheme: dark) {
+    :root {
+        --bgcolor: #201f25;
+        --p: #e6e6e6;
+    }
+}
+
+/* MUST BE IN SYNC WITH ABOVE!*/
+:root[data-force-color-mode="dark"] {
+    --bgcolor: #201f25;
+    --p: #e6e6e6;
+}
+
+
+/* colors */
+
+body {
+    background-color: var(--bgcolor);
+    font-size: 20px;
+    font-family: 'Open Sans', sans-serif;
+}
+
+#info-container{
+    margin-top: 0!important;
+}
+
+p, h1, p, th, label, td, .expandable-content
+.defaultTextColor {
+    color: var(--p);
+}
+
+#toggle-darkmode {
+    display: none;
+}
+
+#toggle-darkmode+label>span {
+    position: absolute;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+    height: 1px;
+    width: 1px;
+    margin: -1px;
+    padding: 0;
+    border: 0;
+}
+
+#toggle-darkmode+label:after {
+    font-size: 2em;
+    content: "🔆";
+    cursor: pointer;
+    position: absolute;
+    z-index: 1;
+    right: 27px;
+    top: 10px;
+}
+
+#toggle-darkmode:checked+label:after {
+    content: "🌙";
+}
+
+#toggle-sound {
+    display: none;
+}
+
+#toggle-sound+label>span {
+    position: absolute;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+    height: 1px;
+    width: 1px;
+    margin: -1px;
+    padding: 0;
+    border: 0;
+}
+
+#toggle-sound+label:after {
+    font-size: 2em;
+    content: "🔇";
+    cursor: pointer;
+    position: absolute;
+    z-index: 1;
+    left: 27px;
+    top: 10px;
+}
+
+#toggle-sound:checked+label:after {
+    content: "🔊";
+}
+
+.expandable-content {
+    overflow: hidden;
+    max-height: 200px;
+    transition: max-height 0.5s;
+}
+
+.expandable-content.expanded {
+    max-height: none;
+}
+
+.table {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+.table th,
+.table td {
+    padding: 8px;
+    word-wrap: break-word;
+    /* This is the key property */
+    overflow-wrap: break-word;
+}
