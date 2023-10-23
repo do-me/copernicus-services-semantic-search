@@ -117,3 +117,41 @@ p, h1, p, th, label, td, .expandable-content
     /* This is the key property */
     overflow-wrap: break-word;
 }
+
+/* Apply styles to the table for small screens */
+@media (max-width: 1450px) {
+    #results-table {
+        display: block;
+    }
+
+    #results-table thead {
+        display: none;
+    }
+
+    #results-table tbody {
+        display: block;
+    }
+
+    #results-table tr {
+        margin-bottom: 20px;
+        border: 1px solid #ccc;
+        padding: 10px;
+    }
+
+    #results-table td {
+        display: block;
+        width: 90vw;
+        border-top: unset;
+    }
+
+    #results-table td:first-child {
+        font-weight: bold;
+    }
+
+    .row{
+        margin-right: 0;
+        margin-left: 0;
+    }
+}
+
+  
