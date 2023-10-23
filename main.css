@@ -152,6 +152,10 @@ p, h1, p, th, label, td, .expandable-content
         margin-right: 0;
         margin-left: 0;
     }
+
+    h1{
+        margin-top: 50px;
+    }
 }
 
   
