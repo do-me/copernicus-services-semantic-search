@@ -31,6 +31,11 @@ You can re-run the process for updates (if you do so, please open a pull request
 ![](copernicus-services-df.png)
 
 ## Export all 834 entries for large LLM context 
+- Just use this plain text file for copy & paste: https://raw.githubusercontent.com/do-me/copernicus-services-semantic-search/main/copernicus-services.txt.
+- In Gemini (https://aistudio.google.com), this text counts roughly 1.5 Mio tokens, so you can still add large prompts within the 2 Mio context window.
+
+<details>
+  <summary>How to create this text file with JS</summary>
 - Run a search and display all results (enter 1000 as limit). The results are ordered by similarity.
 - Open the browser console with F12
 - Use this JS and execute it: 
@@ -78,6 +83,6 @@ tableToText();
 ```
 - Copy the output with the copy button (e.g. in Chrome or select the whole text)
 ![image](https://github.com/user-attachments/assets/c970ae68-5bca-46fd-b2ee-c228a77ee881)
-- In Gemini (https://aistudio.google.com), this text counts roughly 1.5 Mio tokens, so you can still add large prompts within the 2 Mio context window
+</details>
 
 If you like this project, ⭐ the repo or give a shoutout on social media!
