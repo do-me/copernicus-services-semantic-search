@@ -31,11 +31,16 @@ You can re-run the process for updates (if you do so, please open a pull request
 ![](copernicus-services-df.png)
 
 ## Export all 834 entries for large LLM context 
-- Run a search and display all results (enter 1000 as limit)
+- Run a search and display all results (enter 1000 as limit). The results are ordered by similarity.
 - Open the browser console with F12
 - Use this JS and execute it: 
 
 ```javascript
+ document.querySelectorAll('.position-relative').forEach(function(element) {
+    // Remove each element from the DOM
+    element.remove();
+  });
+
 function tableToText() {
             // Select the table
             const table = document.getElementById('results-table');
@@ -50,7 +55,7 @@ function tableToText() {
                     const cell = row.cells[i];
 
                     // For the first two columns, check if there are anchor tags
-                    if (i === 1) {
+                    if ((i === 1) | (i===2)) {
                         const link = cell.querySelector('a');
                         if (link) {
                             // Use the href attribute of the anchor tag
