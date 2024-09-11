@@ -30,4 +30,49 @@ You can re-run the process for updates (if you do so, please open a pull request
 
 ![](copernicus-services-df.png)
 
+## Export all 834 entries for large LLM context 
+- Run a search and display all results (enter 1000 as limit)
+- Open the browser console with F12
+- Use this JS and execute it: 
+
+```javascript
+function tableToText() {
+            // Select the table
+            const table = document.getElementById('results-table');
+            let resultText = '';
+
+            // Loop through each row
+            for (let row of table.rows) {
+                // Loop through each cell in the row, excluding the "Similarity" column (index 2)
+                for (let i = 0; i < row.cells.length; i++) {
+                    if (i === 5) continue; // Skip Similarity
+
+                    const cell = row.cells[i];
+
+                    // For the first two columns, check if there are anchor tags
+                    if (i === 1) {
+                        const link = cell.querySelector('a');
+                        if (link) {
+                            // Use the href attribute of the anchor tag
+                            resultText += link.href + '\n';
+                        } else {
+                            resultText += cell.innerText + '\n';  // Fallback to normal text
+                        }
+                    } else {
+                        resultText += cell.innerText + '\n';  // For other columns, use innerText
+                    }
+                }
+                resultText += '\n\n';  // Add two line breaks between rows
+            }
+
+            console.log(resultText);  // Log the result to the console
+        }
+
+// Call the function to convert table to text and log it
+tableToText();
+```
+- Copy the output with the copy button (e.g. in Chrome or select the whole text)
+![image](https://github.com/user-attachments/assets/c970ae68-5bca-46fd-b2ee-c228a77ee881)
+- In Gemini (https://aistudio.google.com), this text counts roughly 1.5 Mio tokens, so you can still add large prompts within the 2 Mio context window
+
 If you like this project, ⭐ the repo or give a shoutout on social media!
