@@ -85,4 +85,28 @@ tableToText();
 ![image](https://github.com/user-attachments/assets/c970ae68-5bca-46fd-b2ee-c228a77ee881)
 </details>
 
-If you like this project, ⭐ the repo or give a shoutout on social media!
+## Qdrant Instance 
+I provide a public Qdrant instance over Qdrant Cloud that you can access to create nice plots for the collection via dimensionality reduction or graph-based links.
+Access the collection with the API key `A-KWBxWl_8G3cnXv3MlpCThEDTdS6FYnTzn-h9k9TE95f5cvMUAGbQ` under: 
+
+https://8f35f088-fc2e-426e-92a3-4f4f26f64812.europe-west3-0.gcp.cloud.qdrant.io:6333/dashboard#/collections/Copernicus_Services/
+
+### Scatterplot
+Click on `visualize` or access [this link](https://8f35f088-fc2e-426e-92a3-4f4f26f64812.europe-west3-0.gcp.cloud.qdrant.io:6333/dashboard#/collections/Copernicus_Services/visualize). Then enter this code an hit `RUN`:
+```
+{
+  "limit": 5000,
+  "color_by": "Copernicus_Service"
+}
+```
+![image](https://github.com/user-attachments/assets/b7b8b118-5bb9-43df-b6d2-1c9d5ef98549)
+
+### Graph
+Click on `graph` or access [this link](https://8f35f088-fc2e-426e-92a3-4f4f26f64812.europe-west3-0.gcp.cloud.qdrant.io:6333/dashboard#/collections/Copernicus_Services/graph). Then hit `RUN`.
+
+![image](https://github.com/user-attachments/assets/108a8511-e081-47fe-943f-f56635dd99d2)
+
+### Download Qdrant Snapshot
+You can download the snapshot [here](https://8f35f088-fc2e-426e-92a3-4f4f26f64812.europe-west3-0.gcp.cloud.qdrant.io:6333/dashboard#/collections/Copernicus_Services#snapshots) and run it locally too.
+
+If you like this project, ⭐ the repo or give a shoutout on social media. Let me know if you build something cool with it!
